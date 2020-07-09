@@ -1,14 +1,20 @@
-function download(filename, text) {
-    let element = document.createElement('a')
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
-    element.setAttribute('download', filename)
-    element.style.display = 'none'
-    document.body.appendChild(element)
-    element.click()
-    document.body.removeChild(element)
-}
+// function download(filename, text) {
+//     let element = document.createElement('a')
+//     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + text)
+//     element.setAttribute('download', filename)
+//     element.style.display = 'none'
+//     document.body.appendChild(element)
+//     element.click()
+    
+//     setTimeout(()=>{
+//         document.body.removeChild(element)
+//     },1000)   
+       
+    
+// }
 
 function fetchLogo(item, imgUrl) {
+    console.log(imgUrl)
     let xhr = new XMLHttpRequest();
     xhr.onload = function() {
         let reader = new FileReader();
@@ -34,9 +40,12 @@ function checkEndFetchLogo() {
     // 只打包书签栏里的
     if (window.logoIndex == window.logoCnt) {
         let yaml = json2yaml(window.dataObj.sub);
-        //console.log(yaml);
-        download('webstack.yml', yaml);
-        $('#progress-status').text('已结束');
+        console.log(yaml);
+
+            download(yaml,'webstack.yml');
+            
+            $('#progress-status').text('已结束');
+       
     }
 }
 
@@ -81,6 +90,7 @@ function convert2yaml(content) {
             if (!a) return null;
 
             const name = a.innerText;
+
             const title = name;
             const description = '';
             let item = {
@@ -92,8 +102,13 @@ function convert2yaml(content) {
             };
             window.logoCnt++;
             console.log("begin", window.logoCnt);
-            const fetchLogoUrl = window.faviconserver + '/icon?size=80..120..200&url=' + a.href;
-            fetchLogo(item, fetchLogoUrl);
+            let icon = a.getAttribute('icon');
+            // if(icon){
+                const fetchLogoUrl = icon;  
+                console.log(fetchLogoUrl)
+                fetchLogo(item, fetchLogoUrl);
+            // }
+            
             return item;
         }
 

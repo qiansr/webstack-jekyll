@@ -22,20 +22,15 @@ title: Webstack - jekyll 个人书签导航
 keywords: 书签导航,网址导航,导航,网站导航,网址大全
 description: WebStack - 个人书签。
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://w.hanxi.info" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 email: hanxi.info@gmail.com
 
-# faviconserver is from https://github.com/mat/besticon
-faviconserver: "https://home.hanxi.info:2112"
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
-
-github:
-  repo: hanxi/webstack-jekyll
 
 # Exclude from processing.
 # The following items will not be processed, by default.
