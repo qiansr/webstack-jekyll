@@ -26,6 +26,9 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 email: hanxi.info@gmail.com
 
+# faviconserver is from https://github.com/mat/besticon
+faviconserver: "https://home.hanxi.info:2112"
+
 
 # Build settings
 theme: minima

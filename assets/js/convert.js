@@ -102,12 +102,15 @@ function convert2yaml(content) {
             };
             window.logoCnt++;
             console.log("begin", window.logoCnt);
-            let icon = a.getAttribute('icon');
-            // if(icon){
-                const fetchLogoUrl = icon;  
-                console.log(fetchLogoUrl)
-                fetchLogo(item, fetchLogoUrl);
-            // }
+
+            // let icon = a.getAttribute('icon');
+
+       
+            const fetchLogoUrl = window.faviconserver+'?size=80..120..200&url='+a.href;  
+            console.log(fetchLogoUrl)
+            fetchLogo(item, fetchLogoUrl);
+       
+            
             
             return item;
         }
